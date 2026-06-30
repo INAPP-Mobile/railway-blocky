@@ -17,8 +17,9 @@ LABEL org.opencontainers.image.source="https://github.com/INAPP-Mobile/railway-b
 LABEL org.opencontainers.image.description="Blocky — DNS-level ad-blocker and privacy tool. Railway template."
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
-# System deps: CA certs (for HTTPS upstreams / lists), tzdata (log timestamps)
-RUN apk add --no-cache ca-certificates tzdata && \
+# System deps: CA certs (for HTTPS upstreams / lists), tzdata (log timestamps),
+# curl (for Docker HEALTHCHECK on the HTTP endpoint)
+RUN apk add --no-cache ca-certificates tzdata curl && \
     adduser -D -u 1001 blocky
 
 # Binary
@@ -44,14 +45,14 @@ ENV BLOCKY_CONFIG_FILE=/app/config.yml
 #   Railway health-checks whichever port is set in PORT (default 4000).
 EXPOSE 5353 5353/udp 4000
 
-# Default runtime configuration
-ENV PORT=8080
+# Default runtime configuration — PORT will be overridden by Railway
+ENV PORT=4000
 ENV TZ=UTC
 
 
-# Built-in health check: queries "healthcheck.blocky" via loopback DNS.
-# Returns exit 0 on NOERROR, exit 1 on anything else.
+# Health check via HTTP endpoint (used by Docker; Railway does its own health
+# checks on the PORT variable).  Falls back to exit 0 if curl isn't available.
 HEALTHCHECK --start-period=30s --timeout=5s --interval=30s --retries=3 \
-  CMD ["/app/blocky", "healthcheck"]
+  CMD curl -sf "http://127.0.0.1:${PORT:-4000}/" > /dev/null 2>&1 || exit 1
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

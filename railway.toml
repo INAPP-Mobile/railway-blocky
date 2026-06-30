@@ -1,0 +1,8 @@
+[build]
+  dockerfilePath = "Dockerfile"
+  watchPatterns = ["Dockerfile", "docker-entrypoint.sh", "config.yml"]
+
+[deploy]
+  numReplicas = 1
+  restartPolicyType = "ON_FAILURE"
+  restartPolicyMaxRetries = 3

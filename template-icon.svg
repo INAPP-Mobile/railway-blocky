@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="160" fill="url(#bg)"/>
+  <!-- Shield icon -->
+  <g transform="translate(400,320)">
+    <!-- Shield body -->
+    <path d="M0 -140 L-120 -80 L-120 40 Q-120 140 0 200 Q120 140 120 40 L120 -80 Z"
+          fill="none" stroke="url(#shield)" stroke-width="8" stroke-linejoin="round"/>
+    <!-- Checkmark inside shield -->
+    <path d="M-60 -20 L-20 30 L60 -50" fill="none" stroke="url(#accent)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- DNS dots -->
+    <circle cx="-50" cy="-100" r="6" fill="#22d3ee" opacity="0.6"/>
+    <circle cx="0" cy="-115" r="6" fill="#22d3ee" opacity="0.8"/>
+    <circle cx="50" cy="-100" r="6" fill="#22d3ee" opacity="0.6"/>
+  </g>
+  <text x="400" y="570" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="52" font-weight="700">Blocky</text>
+  <text x="400" y="630" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="26" font-weight="400">DNS Ad-Blocker &amp; Privacy Tool</text>
+</svg>

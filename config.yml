@@ -1,0 +1,77 @@
+# ── Blocky — Railway default configuration ─────────────────────────────────
+#   Override by setting the BLOCKY_CONFIG env var to a base64-encoded YAML
+#   string of your full config.  This file is a sensible starting point.
+
+upstreams:
+  # Fast startup — don't wait for all lists to download before serving.
+  init:
+    strategy: fast
+  groups:
+    default:
+      # Cloudflare (DoH + plain)
+      - https://cloudflare-dns.com/dns-query
+      # Quad9 (DoT)
+      - tcp-tls:dns.quad9.net:853
+  # Send to 2 random upstreams in parallel, use fastest response
+  strategy: parallel_best
+  timeout: 2s
+
+# ── Blocking ───────────────────────────────────────────────────────────────
+blocking:
+  denylists:
+    ads:
+      # Steven Black's unified hosts file
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  clientGroupsBlock:
+    default:
+      - ads
+  blockType: zeroIp
+  blockTTL: 1h
+  loading:
+    refreshPeriod: 24h
+    strategy: fast
+    downloads:
+      timeout: 30s
+      attempts: 3
+      cooldown: 1s
+
+# ── Caching ────────────────────────────────────────────────────────────────
+caching:
+  minTime: 5m
+  maxTime: 30m
+  maxItemsCount: 0      # unlimited
+  prefetching: true
+  prefetchExpires: 2h
+  prefetchThreshold: 10
+
+# ── Ports ──────────────────────────────────────────────────────────────────
+ports:
+  dns: 5353
+  http: 4000
+  # DoH is served on the HTTP listener at /dns-query (default path)
+
+# ── Logging ────────────────────────────────────────────────────────────────
+log:
+  level: info
+  format: text
+  timestamp: true
+
+# ── Prometheus metrics ─────────────────────────────────────────────────────
+prometheus:
+  enable: true
+  path: /metrics
+
+# ── Query log (disabled by default — zero-dependency template) ────────────
+# queryLog:
+#   type: console    # log queries to stdout
+#   logRetentionDays: 7
+
+# ── DNS64 (IPv6 synthesis — disabled unless you have a NAT64 gateway) ─────
+# dns64:
+#   enable: false
+#   prefixes:
+#     - 64:ff9b::/96
+
+# ── DNSSEC (disabled by default — enable if your upstreams support it) ────
+# dnssec:
+#   validate: false
