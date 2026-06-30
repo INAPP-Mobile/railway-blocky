@@ -193,6 +193,14 @@ railway variable set BLOCKY_CONFIG=<base64-output>
 
 ---
 
+## Screenshots
+
+| Dashboard | API Documentation | Prometheus Metrics |
+|-----------|------------------|-------------------|
+| ![Dashboard](assets/screenshot-dashboard.png) | ![API Docs](assets/screenshot-api.png) | ![Metrics](assets/screenshot-metrics.png) |
+
+---
+
 ## License
 
 This template is distributed under the **MIT License**. Blocky itself is Apache-2.0 licensed.
