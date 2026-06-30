@@ -2,7 +2,7 @@
 
 > **Fast and lightweight DNS proxy as ad-blocker for local network.** Blocky blocks ads, trackers, and malicious domains at the DNS level — no browser extensions required, works network-wide.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/railway-blocky)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/blocky)
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-INAPP--Mobile%2Frailway--blocky-181717?style=flat-square&logo=github)](https://github.com/INAPP-Mobile/railway-blocky)
 [![Blocky](https://img.shields.io/badge/Blocky-6.7K%E2%98%85-6366f1?style=flat-square)](https://github.com/0xERR0R/blocky)
@@ -87,7 +87,7 @@ Blocky is a modern, feature-rich DNS ad-blocker with 6.7K GitHub stars. Self-hos
 
 ### One-click Deploy
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/railway-blocky)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/blocky)
 
 ### Configure Your Devices
 
