@@ -48,7 +48,7 @@ Blocky is a modern, feature-rich DNS ad-blocker with 6.7K GitHub stars. Self-hos
 - **Developer DNS** — Test and debug DNS resolution with the REST API and query logging
 - **DNS-over-HTTPS Gateway** — Provide encrypted DNS to your local network
 
-## Dependencies for Blocky
+## Dependencies for
 
 ### Runtime
 
