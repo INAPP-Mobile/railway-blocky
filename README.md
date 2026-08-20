@@ -12,7 +12,7 @@
 
 # Deploy and Host
 
-Deploy Blocky on Railway in one click. This template provisions a single container running Blocky v0.32.1 with a pre-configured ad-blocking setup — no database, no external services, zero additional dependencies.
+Deploy Blocky on Railway in one click. This template provisions a single container running Blocky v0.34.0 with a pre-configured ad-blocking setup — no database, no external services, zero additional dependencies.
 
 ## About Hosting
 
@@ -54,7 +54,7 @@ Blocky is a modern, feature-rich DNS ad-blocker with 6.7K GitHub stars. Self-hos
 
 | Dependency    | Version/Type | Purpose                                 |
 |---------------|--------------|-----------------------------------------|
-| Go Binary     | v0.32.1      | Single static binary (~20 MB)           |
+| Go Binary     | v0.34.0      | Single static binary (~20 MB)           |
 | Alpine Linux  | 3.19         | Minimal runtime base image              |
 
 ### Deployment Dependencies
@@ -171,7 +171,7 @@ railway variable set BLOCKY_CONFIG=<base64-output>
 
 ## Security
 
-- **Pinned version** — Built from `v0.32.1` release (not `:latest`)
+- **Pinned version** — Built from `v0.34.0` release (not `:latest`)
 - **No hardcoded secrets** — all configuration via env vars or config file
 - **Non-root user** — Container runs as user 100
 - **CA certificates** — Trusted certificates for HTTPS upstreams and list downloads

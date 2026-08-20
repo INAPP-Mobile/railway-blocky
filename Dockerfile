@@ -6,7 +6,7 @@ FROM alpine:3.19 AS download
 
 RUN apk add --no-cache curl tar && \
     curl -fsSL \
-      "https://github.com/0xERR0R/blocky/releases/download/v0.32.1/blocky_v0.32.1_Linux_x86_64.tar.gz" \
+      "https://github.com/0xERR0R/blocky/releases/download/v0.34.0/blocky_v0.34.0_Linux_x86_64.tar.gz" \
     | tar xz -C /tmp/
 
 # ── Runtime stage ──────────────────────────────────────────────────────────
