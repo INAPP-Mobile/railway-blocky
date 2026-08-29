@@ -2,7 +2,7 @@
 #   Fetch the pre-built static binary for the target platform. Building from
 #   Go source would add 2-3 minutes and a full Go toolchain every deploy;
 #   the official release tarball is ~10 MB and takes seconds.
-FROM alpine:3.19 AS download
+FROM alpine:3.24 AS download
 
 RUN apk add --no-cache curl tar && \
     curl -fsSL \
@@ -10,7 +10,7 @@ RUN apk add --no-cache curl tar && \
     | tar xz -C /tmp/
 
 # ── Runtime stage ──────────────────────────────────────────────────────────
-FROM alpine:3.19
+FROM alpine:3.24
 
 # Metadata
 LABEL org.opencontainers.image.source="https://github.com/INAPP-Mobile/railway-blocky"
