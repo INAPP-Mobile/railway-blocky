@@ -132,7 +132,7 @@ For full control, encode your complete `config.yml` and set it as a secret:
 cat config.yml | base64 -w0
 
 # 3. Set as Railway secret
-railway variable set BLOCKY_CONFIG=<base64-output>
+railway variable set BLOCKY_CONFIG={base64-output}
 ```
 
 ---
